@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Color Maker</title>
+  </head>
+  <body>
+    <div id="app">
+
+      <div v-for="(item, index) in items" class="color-container" :style="{ 'background-color': `rgba(${ item.red }, ${ item.green }, ${ item.blue }, ${ item.opacity / 100 })` }">
+
+        <div class="inputs-container" :class="item.active ? 'active': 'no_active'">
+
+          <div class="controller">
+            <label for="">Red: {{ item.red }}</label>
+            <input type="range" min="0" max="255" v-model="item.red">
+
+            <label for="">Green: {{ item.green }}</label>
+            <input type="range" min="0" max="255" v-model="item.green">
+
+            <label for="">Blue: {{ item.blue }}</label>
+            <input type="range" min="0" max="255" v-model="item.blue">
+
+            <label for="">Opacity: {{ item.opacity / 100 }}</label>
+            <input type="range" min="0" max="100" v-model="item.opacity">
+
+            <div class="hex-color">
+              <button class="btn" @click="rgbToHex(index, parseInt(item.red), parseInt(item.green), parseInt(item.blue))" type="button" name="button">HEX</button>
+              <small>{{ item.hexColor }}</small>
+            </div>
+          </div>
+
+          <div class="icon" @click="toggleActiveClass(index)">
+            <i class="fas fa-angle-left"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>

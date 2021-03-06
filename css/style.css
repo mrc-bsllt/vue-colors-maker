@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lora', serif;
+}
+
+#app {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.color-container {
+  position: relative;
+  height: calc(100% / 4);
+  color: #c1c1c1;
+  font-weight: 600;
+}
+.color-container:hover .icon {
+  opacity: 1;
+}
+.inputs-container {
+  position: absolute;
+  top: 0;
+  left: calc(100%);
+  width: 300px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.inputs-container.active {
+  animation-name: leftAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+.inputs-container.no_active {
+  animation-name: rightAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  right: 100%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.controller {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* .inputs {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 500px;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+.inputs.active {
+  animation-name: leftAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+.inputs > input {
+  cursor: pointer;
+}
+
+label {
+  margin: 10px 0 5px 0;
+}
+
+input[type="range"] {
+  height: 5px;
+}
+
+.btn {
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color:#000000;
+  border-radius: 5px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  left: -50px;
+  top: 0;
+}
+
+.icon i {
+  font-size: 50px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/* ANIMAZIONI */
+@keyframes leftAnimation {
+  0% {
+    top: 0;
+    left: 100%;
+  }
+  100% {
+    top: 0;
+    left: calc(100% - 300px);
+  }
+}
+
+@keyframes rightAnimation {
+  0% {
+    top: 0;
+    left: calc(100% - 300px);
+  }
+  100% {
+    top: 0;
+    left: 100%;
+  }
+}
